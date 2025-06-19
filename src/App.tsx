@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import './App.css';
-import { db } from './config/firebase';
+import { useState } from "react";
+import "./App.css";
+import { db } from "./config/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 type IInvite = {
@@ -21,7 +21,11 @@ function App() {
   const handleGetInvite = async () => {
     if (inviteCode) {
       try {
-        const q = query(inviteCollectionRef, where("id", "==", inviteId), where("code", "==", inviteCode));
+        const q = query(
+          inviteCollectionRef,
+          where("id", "==", inviteId),
+          where("code", "==", inviteCode)
+        );
         const querySnapshot = await getDocs(q);
         if (querySnapshot.size === 1) {
           const doc = querySnapshot.docs[0];
@@ -63,17 +67,25 @@ function App() {
         {invite && (
           <div className="p-4 border border-gray-300 rounded">
             <h2 className="text-lg font-bold">O teu convite</h2>
-            <p><strong>Nome:</strong> {invite.name}</p>
-            <p><strong>Código:</strong> {invite.code}</p>
-            <p><strong>Presença:</strong> {invite.attend ? 'Sim' : 'Não'}</p>
+            <p>
+              <strong>Nome:</strong> {invite.name}
+            </p>
+            <p>
+              <strong>Código:</strong> {invite.code}
+            </p>
+            <p>
+              <strong>Presença:</strong> {invite.attend ? "Sim" : "Não"}
+            </p>
           </div>
         )}
         {notFound && (
-          <p className="text-red-500">Ooops! Não conseguimos encontrar o teu convite.</p>
+          <p className="text-red-500">
+            Ooops! Não conseguimos encontrar o teu convite.
+          </p>
         )}
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

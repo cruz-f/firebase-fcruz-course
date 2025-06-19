@@ -8,8 +8,8 @@ const firebaseConfig = {
   projectId: "fcruz-course",
   storageBucket: "fcruz-course.firebasestorage.app",
   messagingSenderId: "412369263350",
-  appId: "1:412369263350:web:1c43d475830f9db9772ad7",
-  measurementId: "G-RB2CCY0H7R"
+  appId: "1:412369263350:web:280a137470e8e198772ad7",
+  measurementId: "G-Z0YM8VC128",
 };
 
 // Initialize Firebase
